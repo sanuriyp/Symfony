@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SymphArt Articles{% endblock %}
+
+{% block body %}
+{# This will be a comment #}
+{#<h1>My name is {{name}}</h1>#}
+
+    {% if articles %}
+      <table id="articles" class="table taable-striped">{#In here used event delegation#}
+       <thead>
+          <tr>
+          <th>Article Title </th>
+          <th>Actions</th>
+          </tr>
+       </thead>
+       <tbody>
+         {% for article in articles %}
+           <tr>
+              <td>{{article.title}}</td>
+              <td>
+                <a href="/article/{{article.id}}" class="btn btn-dark">Show(Click Here!)</a>
+                 <a href="/article/edit/{{article.id}}" class="btn btn-light">Edit</a>
+                <a href="#" class="btn btn-danger delete-article" data-id="{{article.id}}">Delete</a>     {#danger class used to get red button#}
+              </td>  
+           </tr>
+         {% endfor %}  
+       </tbody>
+    {% else %}
+       <p>No articles to display</p>
+    {% endif %}
+
+
+{% endblock %}
+
+{#for delete button function#}
+{% block javascripts %}
+  <script src="/js/main.js"></script>
+{% endblock %}

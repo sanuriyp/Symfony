@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Articles{% endblock %}
+
+{#Create form structure#}
+{% block body %}
+
+{{form_start(form)}}   {#start the form#}
+{{form_widget(form)}}  {#Accual form#}
+{{form_end(form)}}     {#end of the form#}
+{% endblock %}
